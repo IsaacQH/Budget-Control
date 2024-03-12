@@ -1,12 +1,19 @@
-import Header from "./components/Header"
 
+import { useState } from "react"
+
+import Header from "./components/Header"
 
 function App() {
 
+  const [budget, setBudget] = useState(0)    //iniciamos el presupuesto en 0
+
   return (
-    <>
-      <Header/>
-    </>
+    <div>
+      <Header
+        budget = {budget}
+        setBudget = {setBudget}
+      />
+    </div>
   )
 }
 

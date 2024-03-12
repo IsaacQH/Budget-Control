@@ -1,11 +1,14 @@
 import React from 'react'
 import NewBudget from './NewBudget'
 
-const Header = () => {
+const Header = ({budget, setBudget}) => {
   return (
     <header>
         <h1>Planning your budget</h1>
-        <NewBudget />
+        <NewBudget
+            budget = {budget}
+            setBudget = {setBudget}
+        />
     </header>
   )
 }
