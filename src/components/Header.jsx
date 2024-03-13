@@ -8,7 +8,9 @@ const Header = ({budget, setBudget, isValid, setIsValid}) => {
         <h1>Planning your budget</h1>
 
         {isValid ? (
-            <ControlBudget/>
+            <ControlBudget
+                budget = {budget}
+            />
         ) : (
             <NewBudget
                 budget = {budget}
