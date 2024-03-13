@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
 import Message from './Message'
 
-const NewBudget = ({budget, setBudget}) => {
+const NewBudget = ({budget, setBudget, setIsValid}) => {
 
-  const [message, setMessage] = useState('')
-
+  const [message, setMessage] = useState('') //State para el mensaje
   const handleBudget = (event) => {
     event.preventDefault()    //Evita que se haga refresh cuando hay un sibmit en el form
     //console.log('Submiting budget...')
@@ -15,7 +14,7 @@ const NewBudget = ({budget, setBudget}) => {
     }  //No es un número
     
     setMessage('')
-    console.log
+    setIsValid(true)    //Cambia a que el presupuesto fue válido
   }
 
 
