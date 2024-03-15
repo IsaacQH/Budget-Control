@@ -45,6 +45,8 @@ function App() {
 
         isValid = {isValid}
         setIsValid = {setIsValid}
+
+        gastos = {gastos}
       />
 
       {isValid && (      /*Revisa si modal es true y si es así nos coloca la imagen + */
