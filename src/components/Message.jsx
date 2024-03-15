@@ -1,4 +1,5 @@
 
+//Componente para el mensaje , es reutilizable
 
 const Message = ({children, tipo}) => {
   return (

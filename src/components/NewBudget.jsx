@@ -1,3 +1,6 @@
+
+//Componente para el nuevo presupuesto, pag inicial
+
 import React, { useState } from 'react'
 import Message from './Message'
 

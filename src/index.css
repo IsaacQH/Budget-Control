@@ -57,28 +57,32 @@ header h1 {
 }
 
 .formulario {
-    width: 95%;
+    width: 90%; /* Reducido el ancho para adaptarlo mejor a pantallas pequeñas */
     margin: 0 auto;
-    padding: 10rem 0;
+    padding: 2rem 0; /* Reducido el padding para pantallas pequeñas */
 }
+
 @media (min-width: 768px) {
     .formulario {
         padding: 5rem 0;
         width: 60rem;
     }
 }
+
 .formulario legend {
     font-size: 3.6rem;
     text-align: center;
     display: block;
     text-transform: uppercase;
     color: var(--blanco);
-    margin-bottom: 4rem;
+    margin-bottom: 2rem; /* Reducido el espacio inferior para pantallas pequeñas */
     padding-bottom: 1rem;
     border-bottom: 2px solid var(--azul);
 }
+
 .formulario .campo {
     display: grid;
+    gap: 1rem; /* Espacio entre los elementos del grid */
     margin-bottom: 2rem;
 }
 
@@ -86,20 +90,22 @@ header h1 {
     color: var(--azul);
     font-size: 2.8rem;
     text-align: center;
-    margin-bottom: 2rem;
 }
 
 .formulario input[type="text"],
 .formulario input[type="number"] {
+    width: 100%; /* Hacer que el input ocupe todo el ancho disponible */
+    max-width: 100%; /* Garantizar que no se desborde en pantallas pequeñas */
     background-color: var(--gris-claro);
     border-radius: 1rem;
     padding: 1rem;
     border: none;
-    flex: 1;
     font-size: 1.6rem;
 }
+
 .formulario input[type="submit"] {
     background-color: #1048a4;
+    border-radius: 40px;
     border: none;
     padding: 1rem;
     text-align: center;
@@ -111,15 +117,11 @@ header h1 {
     width: 100%;
     transition: background-color 300ms ease;
 }
+
 @media (min-width: 768px) {
     .formulario input[type="submit"] {
-        display: block;
-        padding: 1rem 5rem;
+        margin-top: 0; /* Eliminar el margen superior para pantallas más grandes */
     }
-}
-.formulario input[type="submit"]:hover {
-    background-color: #042a67;
-    cursor: pointer;
 }
 
 .formulario select {
@@ -351,19 +353,21 @@ main {
 .modal .cerrar-modal img {
     width: 100%;
 }
-
 .modal .formulario {
-    max-width: 80rem;
-    width: 40rem;
+    max-width: 80%; /* Se cambió a un porcentaje del ancho máximo */
+    width: 100%; /* Se cambió a ancho completo */
     transition-property: all;
     transition-duration: 300ms;
     transition-timing-function: ease-in;
     opacity: 0;
 }
+
 .modal label {
     color: var(--blanco);
+    text-align: left; /* Se agregó para alinear los labels a la izquierda */
 }
-body .modal {
+
+.body .modal {
     overflow: hidden;
 }
 

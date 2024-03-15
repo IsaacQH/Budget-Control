@@ -1,3 +1,6 @@
+
+//Componente para el header, este alberga todo el top i decide si hay un nuevo presupuesto o hay control de presupuesto
+
 import React from 'react'
 import NewBudget from './NewBudget'
 import ControlBudget from './ControlBudget'

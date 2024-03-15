@@ -1,7 +1,9 @@
 
+//Componente para el control del budget, muestra el presupuesto
+
 const ControlBudget = ({budget}) => {
 
-    const format = (value) => {
+    const format = (value) => {   //Convierte el formato de el dinero en $x,xxx.xx
         return value.toLocaleString('en-US', {
             style: 'currency',
             currency:'USD'
