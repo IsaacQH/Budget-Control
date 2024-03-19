@@ -31,7 +31,7 @@ const ControlBudget = ({budget, gastos}) => {
                 <p>Graph Here</p>
             </div>
 
-            <div className="contenido-presupuesto">dwd
+            <div className="contenido-presupuesto">
                 <p> <span>Budget: </span> {format(budget)} </p>
 
                 <p> <span>Available: </span> {format(available)} </p>

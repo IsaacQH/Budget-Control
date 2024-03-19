@@ -1,7 +1,7 @@
 
 //Componente principal de toda la aplicación
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 import Header from "./components/Header"
 import { ListBills } from "./components/ListBills"
@@ -20,11 +20,30 @@ function App() {
   const [modal, setModal] = useState(false)     //Nos permite controlar si se añade un gasto 
   const [modalAnimation, setModalAnimation] = useState(false)
   //nos permite controlar  la animación de modal
-  const [gastos, setGastos] = useState([])
+  const [gastos, setGastos] = useState([])  //Este state acumula todos los bills hechos
+  const [gastoEdit, setGastoEdit] = useState({}) //Guarda el bill que será editado
+  const [gastoDel, setGastoDel] = useState({}) //Guarda el bill que será eliminado
+
+  useEffect(() => {     //Este useEffect escuchará cada que se realice un cambio en el gastoEdit
+    if(Object.keys(gastoEdit).length > 0){  //Revisa que exista un id
+    //console.log("YOU ARE ADDING A BILL ")
+    setModal(true)
+
+    setTimeout(() => {
+      setModalAnimation(true)
+    }, 500)    //Después de medio segundo activa la animación
+    }
+  },[gastoEdit])
+
+  const deleteGasto = (id) => {
+    const gastosUpdate = gastos.filter(gasto => gasto.id ==! id )
+    setGastos(gastosUpdate)
+  }
 
   const handleNewSpent = () => {
     //console.log("YOU ARE ADDING A BILL ")
     setModal(true)
+    setGastoEdit({})      //Nos permite vaciar el form hasta del edit
 
     setTimeout(() => {
       setModalAnimation(true)
@@ -54,6 +73,10 @@ function App() {
         <main>
           <ListBills
             gastos = {gastos}
+
+            setGastoEdit = {setGastoEdit}
+
+            deleteGasto = {deleteGasto}
           />
         </main>
 
@@ -73,6 +96,7 @@ function App() {
         modalAnimation = {modalAnimation}
         setModalAnimation = {setModalAnimation} 
         saveBill = {saveBill}
+        gastoEdit = {gastoEdit}
       />   /*Revisa si modal es true y si es así nos lleva al componente */}
 
 

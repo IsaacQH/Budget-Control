@@ -1,17 +1,25 @@
 
 //Componente para el Modal (el Ñdidor de gastos)
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import CloseMod from "../img/cerrar.svg" //imagen de curz para cerrar
 import Message from "./Message"
 
 
-const Modal = ({setModal, modalAnimation, setModalAnimation, saveBill}) => {
+const Modal = ({setModal, modalAnimation, setModalAnimation, saveBill, gastoEdit}) => {
 
     const [name, setName] = useState('')  //State para el nombre en el form
     const [amount, setAmount] = useState('')  //State para cantidad en el form
     const [category, setCategory] = useState('')  //State para category en el form
     const [message, setMessage] = useState('')  //State para mostar el mensaje
+
+    useEffect(() => { 
+        if(Object.keys(gastoEdit).length > 0){ //una vez que detecta que se hace llamado de la funcón, solo si existe un gastoEdit ID coloca los valores existendes del edit
+            setName(gastoEdit.name)
+            setAmount(gastoEdit.amount)
+            setCategory(gastoEdit.category)
+          }
+    }, [])  //Cargará siempre que el componente modal es iniciado
 
     const hideModal = () => {
         //console.log("HIDDING MODAL")
@@ -56,7 +64,7 @@ const Modal = ({setModal, modalAnimation, setModalAnimation, saveBill}) => {
             className = {`formulario ${modalAnimation ? "animar" : "cerrar"}`}
             onSubmit={handleSubmit}
             >
-            <legend>New Bill</legend>
+            <legend>{gastoEdit.name ? "Edit Bill" : "New Bill"}</legend>
 
             {message && <Message tipo="error">{message}</Message> /*SI mensaje existe, crea ese div */}
 
@@ -104,7 +112,7 @@ const Modal = ({setModal, modalAnimation, setModalAnimation, saveBill}) => {
                 </select>
             </div>
 
-            <input type = "submit" value = "Add bill"></input>
+            <input type = "submit" value = {gastoEdit.name ? "Edit" : "Add"}></input>
 
 
         </form>
